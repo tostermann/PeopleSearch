@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using ServerApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ServerApp {
     public class Startup {
@@ -20,12 +22,19 @@ namespace ServerApp {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
+
+            string connectionString =
+                Configuration["ConnectionStrings:DefaultConnection"];
+            services.AddDbContext<DataContext>(options =>
+                options.UseSqlServer(connectionString));
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+                IServiceProvider services) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             } else {
@@ -55,6 +64,8 @@ namespace ServerApp {
                     spa.UseAngularCliServer("start");
                 }
             });
+
+            SeedData.SeedDatabase(services.GetRequiredService<DataContext>());
         }
     }
 }
