@@ -1,13 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServerApp.Models;
 using System.Diagnostics;
+using System.Linq;
 
 namespace ServerApp.Controllers {
 
     public class HomeController : Controller {
+        private DataContext context;
 
+        public HomeController(DataContext ctx)
+        {
+            context = ctx;
+        }
         public IActionResult Index() {
-            return View();
+            return View(context.People.First());
         }
 
         public IActionResult Privacy() {

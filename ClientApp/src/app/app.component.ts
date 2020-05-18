@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Repository } from "./models/repository";
+import { Person } from "./models/person.model";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SportsStore';
+
+    constructor(private repro: Repository) { }
+
+    get person(): Person {
+        return this.repro.person;
+    }
+
+    get people(): Person[] {
+        return this.repro.people;
+    }
+    
+ 
 }

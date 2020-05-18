@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using ServerApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace ServerApp {
     public class Startup {
@@ -21,7 +22,8 @@ namespace ServerApp {
 
         public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services) {
+        public void ConfigureServices(IServiceCollection services)
+        {
 
             string connectionString =
                 Configuration["ConnectionStrings:DefaultConnection"];
@@ -30,6 +32,12 @@ namespace ServerApp {
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1",
+                    new OpenApiInfo { Title = "PeopleSearch API", Version = "v1" });
+            });
         }
 
         
@@ -53,6 +61,13 @@ namespace ServerApp {
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "PeopleSearch API");
+            });
+
 
             app.UseSpa(spa => {
                 string strategy = Configuration
