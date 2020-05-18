@@ -12,7 +12,7 @@ export class Repository {
     filter: Filter = new Filter();
 
     constructor(private http: HttpClient) {
-        this.filter.search = "to";
+        this.filter.search = "";
         this.getPeople() 
       //this.person = JSON.parse(document.getElementById("data").textContent);
     }
