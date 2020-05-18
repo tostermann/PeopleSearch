@@ -1,6 +1,7 @@
 ﻿import { Person } from "./person.model";
 import { Injectable } from "@angular/core"
 import { HttpClient } from '@angular/common/http';
+import { Filter } from "./configClasses.repository";
 
 const peopleUrl = "/api/people"
 
@@ -8,7 +9,10 @@ const peopleUrl = "/api/people"
 export class Repository {
     person: Person;
     people: Person[]
+    filter: Filter = new Filter();
+
     constructor(private http: HttpClient) {
+        this.filter.search = "to";
         this.getPeople() 
       //this.person = JSON.parse(document.getElementById("data").textContent);
     }
@@ -19,7 +23,13 @@ export class Repository {
     }
 
     getPeople() {
-        this.http.get<Person[]>(`${peopleUrl}`)
+        let url = `${peopleUrl}`;
+
+        if (this.filter.search) {
+            url += `?search=${this.filter.search}`;
+        }
+
+        this.http.get<Person[]>(url)
             .subscribe(peps => this.people = peps);
     }
     

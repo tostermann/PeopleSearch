@@ -26,9 +26,16 @@ namespace ServerApp.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Person> GetProducts()
+        public IEnumerable<Person> GetProducts(string search)
         {
             IQueryable<Person> query = context.People;
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                string searchLower = search.ToLower();
+                query = query.Where(p => p.FirstName.ToLower().Contains(searchLower)
+                    || p.LasttName.ToLower().Contains(searchLower));
+            }
             return query;
         }
     }
