@@ -26,7 +26,7 @@ namespace ServerApp.Models
                         Address = "Breey Point, MN",
                         Age = 46,
                         Interests = "Baseball, Computers",
-                        Picture = "insert picure"
+                        Picture = "insert picture"
                     },
                     new Person
                     {
@@ -35,7 +35,7 @@ namespace ServerApp.Models
                         Address = "Dallas, Texas",
                         Age = 40,
                         Interests = "Football",
-                        Picture = "insert picure"
+                        Picture = "insert picture"
                     },
                     new Person
                     {
@@ -44,7 +44,7 @@ namespace ServerApp.Models
                         Address = "Jacksonville, Florida",
                         Age = 40,
                         Interests = "Angular, Web Design",
-                        Picture = "insert picure"
+                        Picture = "insert picture"
                     },
                     new Person
                     {
@@ -53,7 +53,7 @@ namespace ServerApp.Models
                         Address = "Warner Brothers, Animation",
                         Age = 83,
                         Interests = "Hat, Hunting Wabbits ",
-                        Picture = "insert picure"
+                        Picture = "insert picture"
                     },
                     new Person
                     {
@@ -62,7 +62,7 @@ namespace ServerApp.Models
                         Address = "1000 Rock Lane, Bedrock",
                         Age = 60,
                         Interests = "Bowling, TV",
-                        Picture = "insert picure"
+                        Picture = "insert picture"
                     },
                     new Person
                     {
@@ -71,7 +71,7 @@ namespace ServerApp.Models
                         Address = "Mystery City, USA",
                         Age = 7,
                         Interests = "True Crime, Scooby snacks",
-                        Picture = "insert picure"
+                        Picture = "insert picture"
                     },
                     new Person
                     {
@@ -80,7 +80,7 @@ namespace ServerApp.Models
                         Address = "Breey Point, MN",
                         Age = 34,
                         Interests = "Dogs, Reading, The Office",
-                        Picture = "insert picure"}); 
+                        Picture = "insert picture"}); 
                 context.SaveChanges();
             }
         }
