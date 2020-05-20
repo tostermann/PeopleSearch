@@ -26,6 +26,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClientApp", "ClientApp\", "
 		SlnRelativePath = "ClientApp\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImgManager", "ImgManager\ImgManager.csproj", "{FF781117-0597-49BC-AA10-C5490630BB5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F570E521-2E9D-48FB-9105-7E04DBBC43D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,10 @@ Global
 		{223A21C1-5AD7-46F6-86C7-F23E0B640472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{223A21C1-5AD7-46F6-86C7-F23E0B640472}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{223A21C1-5AD7-46F6-86C7-F23E0B640472}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FF781117-0597-49BC-AA10-C5490630BB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF781117-0597-49BC-AA10-C5490630BB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF781117-0597-49BC-AA10-C5490630BB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF781117-0597-49BC-AA10-C5490630BB5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
