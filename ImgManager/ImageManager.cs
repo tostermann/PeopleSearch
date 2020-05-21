@@ -7,29 +7,20 @@ namespace ImgManager
 
     public static class ImageManager
     {
-        public static byte[] ImageToByteArray(Image imageIn)
+        static string base64String = null;
+        public static string ImageToBase64(string jpgFile)
         {
-            using (var ms = new MemoryStream())
+            string path = jpgFile;
+            using (System.Drawing.Image image = System.Drawing.Image.FromFile(path))
             {
-                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-
-                return ms.ToArray();
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+                    base64String = Convert.ToBase64String(imageBytes);
+                    return base64String;
+                }
             }
-        }
-
-        public static Image ByteArrayToImage(byte[] byteArrayIn)
-        {
-            using (var ms = new MemoryStream(byteArrayIn))
-            {
-                var returnImage = Image.FromStream(ms);
-
-                return returnImage;
-            }
-        }
-
-        public static Image ConvertPicToImage(string filename)
-        {
-             return Image.FromFile(filename);
         }
     }
 }
